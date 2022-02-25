@@ -4,7 +4,9 @@ import './Calculator.less';
 const Calculator = (props) => {
     const [paxValues] = useState(props.paxValues);
     const [time, setTime] = useState('');
-    const [selectedClass, setSelectedClass] = useState('');
+    const [selectedClass, setSelectedClass] = useState(
+        paxValues['Street'][0].Pax
+    );
 
     var options = [];
 
@@ -33,7 +35,8 @@ const Calculator = (props) => {
     }
 
     useEffect(() => {
-        console.log('update');
+        props.updateTime(time);
+        props.updateClass(selectedClass);
     }, [time, selectedClass]);
 
     return (

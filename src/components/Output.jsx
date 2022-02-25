@@ -1,22 +1,33 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Output.less';
 
-const Output = (props) => {
-    const [paxValues] = useState(props.paxValues);
-    const [time] = useState(props.time);
-    const [selectedClass] = useState(props.selectedClass);
+const Output = ({ paxValues, time, selectedClass }) => {
+    const [passedPaxValues] = useState(paxValues);
+    const [passedTime, setPassedTime] = useState(time);
+    const [passedClass, setPassedClass] = useState(selectedClass);
+
+    useEffect(() => {
+        setPassedTime(time);
+    }, [time]);
+
+    useEffect(() => {
+        setPassedClass(selectedClass);
+    }, [selectedClass]);
 
     var categories = [];
 
-    for (var category in paxValues) {
-        var paxClasses = paxValues[category];
+    for (var category in passedPaxValues) {
+        var paxClasses = passedPaxValues[category];
 
         var classes = [];
 
         for (var i in paxClasses) {
             var paxClass = paxClasses[i];
 
-            var timeToBeat = ((time * selectedClass) / paxClass.Pax).toFixed(3);
+            var timeToBeat = (
+                (passedTime * passedClass) /
+                paxClass.Pax
+            ).toFixed(3);
 
             classes.push(
                 <div className='class-result' key={paxClass.Name}>
