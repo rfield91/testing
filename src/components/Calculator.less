@@ -1,0 +1,42 @@
+.calculator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(52, 58, 64);
+
+    .inputs {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        > div {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        input,
+        select {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 10px;
+            border: 1px solid rgb(233, 236, 239);
+        }
+    }
+
+    .pax-time {
+        text-align: center;
+        color: rgb(233, 236, 239);
+
+        h3 {
+            font-size: 0.8em;
+        }
+
+        div {
+            font-size: 1em;
+            font-weight: bold;
+            padding: 10px;
+        }
+    }
+}

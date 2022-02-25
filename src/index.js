@@ -1,5 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./components/App";
+import PaxCalculator from "./components/PaxCalculator";
+const paxValues = require("./data/paxvalues.json");
 
-ReactDOM.render(<App />, document.querySelector("#root"));
+ReactDOM.render(
+  <PaxCalculator paxValues={paxValues} />,
+  document.getElementById("app")
+);
