@@ -1,13 +1,14 @@
 .calculator {
     position: fixed;
-    bottom: 0;
+    top: 0;
     left: 0;
     width: 100%;
-    background-color: #ffc947;
+    background-color: #ff9800;
     z-index: 100;
 
     .pax-time {
         text-align: center;
+        padding: 5px 0;
 
         .paxed-time {
             font-size: 24px;
@@ -21,57 +22,25 @@
 
         > div {
             width: 100%;
+            padding: 5px;
         }
 
         input,
         select {
-            font-size: 30px;
+            font-size: 25px;
+            padding: 5px;
             width: 100%;
             height: 100%;
+            border: 1px solid #c77800;
+            background-color: #ff9800;
+
+            &:focus-visible {
+                outline: none;
+            }
         }
     }
 }
 
-// .calculator {
-//     position: fixed;
-//     top: 0;
-//     left: 0;
-//     width: 100%;
-//     background-color: rgb(52, 58, 64);
-
-//     .inputs {
-//         display: flex;
-//         flex-direction: row;
-//         justify-content: space-between;
-
-//         > div {
-//             width: 100%;
-//             padding: 10px;
-//             margin: 10px 0;
-//         }
-
-//         input,
-//         select {
-//             font-size: 5vw;
-//             box-sizing: border-box;
-//             width: 100%;
-//             padding: 10px;
-//             border: 1px solid rgb(233, 236, 239);
-//         }
-//     }
-
-//     .pax-time {
-//         text-align: center;
-//         color: rgb(233, 236, 239);
-
-//         h3 {
-//             font-size: 5vw;
-//         }
-
-//         div {
-//             font-size: 5vw;
-//             font-weight: bold;
-//             padding: 10px;
-//         }
-//     }
-// }
+::placeholder {
+    color: #000;
+}
