@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './Calculator.less';
 
 const Calculator = (props) => {
@@ -7,6 +7,7 @@ const Calculator = (props) => {
     const [selectedClass, setSelectedClass] = useState(
         paxValues['Street'][0].Pax
     );
+    const timeInput = useRef(null);
 
     var options = [];
 
@@ -39,11 +40,26 @@ const Calculator = (props) => {
         props.updateClass(selectedClass);
     }, [time, selectedClass]);
 
+    const handleEnterPress = (e) => {
+        if (e.keyCode === 13) {
+            timeInput.current.blur();
+        }
+    };
+
+    useEffect(() => {
+        timeInput.current.focus();
+        timeInput.current.addEventListener('keyup', handleEnterPress);
+
+        return () =>
+            timeInput.current.removeEventListener('keyup', handleEnterPress);
+    }, []);
+
     return (
         <div className='calculator'>
             <div className='inputs'>
                 <div>
                     <input
+                        ref={timeInput}
                         type='number'
                         step='.001'
                         placeholder='Your time'
