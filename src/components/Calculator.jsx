@@ -56,6 +56,10 @@ const Calculator = (props) => {
 
     return (
         <div className='calculator'>
+            <div className='pax-time'>
+                <h3>PAX Time</h3>
+                <div className='paxed-time'>{paxTime}</div>
+            </div>
             <div className='inputs'>
                 <div>
                     <input
@@ -76,10 +80,6 @@ const Calculator = (props) => {
                         {options}
                     </select>
                 </div>
-            </div>
-            <div className='pax-time'>
-                <h3>PAX Time</h3>
-                <div>{paxTime}</div>
             </div>
         </div>
     );

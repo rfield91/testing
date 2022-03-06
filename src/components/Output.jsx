@@ -39,7 +39,7 @@ const Output = ({ paxValues, time, selectedClass }) => {
 
         categories.push(
             <div className='category' key={category}>
-                <h3>{category}</h3>
+                <div className='category-name'>{category}</div>
                 <div className='classes'>{classes}</div>
             </div>
         );
